@@ -1,1 +1,5 @@
 whatsapp-chatbot-python
+yaml
+whatsapp_chatbot_python.filters
+re
+requests
