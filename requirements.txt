@@ -3,3 +3,7 @@ yaml
 whatsapp_chatbot_python.filters
 re
 requests
+os
+time
+json
+openai

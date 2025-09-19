@@ -3,13 +3,20 @@ from whatsapp_chatbot_python.filters import TEXT_TYPES
 from yaml import safe_load
 import re
 import requests
+import os
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv(), override=True)   # подхватит .env из корня проекта
 
 # 🔑 Авторизация (данные из кабинета Green-API)
-ID_INSTANCE = "7105317910"
-API_TOKEN_INSTANCE = "a49a64afbc914cf5ac6c67982b7afae06f22d4bb68a541bcbe"
-TELEGRAM_BOT_TOKEN = "8339740997:AAFd7vnpqaCmodEZSXxZIWNQcNoDfWzgbRs"
-TELEGRAM_CHAT_ID = "613428897"
-TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ASSISTANT_ID   = os.getenv("ASSISTANT_ID")
+
+ID_INSTANCE        = os.getenv("ID_INSTANCE")
+API_TOKEN_INSTANCE = os.getenv("API_TOKEN_INSTANCE")
+
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID   = os.getenv("TELEGRAM_CHAT_ID")
+TELEGRAM_API_URL   = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
 # Инициализация бота
 bot = GreenAPIBot(ID_INSTANCE, API_TOKEN_INSTANCE)
